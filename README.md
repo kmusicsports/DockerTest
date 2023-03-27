@@ -43,7 +43,7 @@ git clone https://github.com/kmusicsports/DockerTest.git
     ```
 2. 下記のコマンドを打ち、ビルド&起動
     ```
-    docker-compose up -d
+    docker compose up -d
     ```
 3. 「Creating dockertest_web_1 ... done」が表示されたら、下記のリンクにアクセス
     [http://localhost:5000](http://localhost:5000/)
@@ -52,11 +52,11 @@ git clone https://github.com/kmusicsports/DockerTest.git
 ## 停止or破棄
 - 停止する場合(次回ビルドせずに起動可能)
     ```
-    docker-compose stop
+    docker compose stop
     ```
 - 破棄する場合
     ```
-    docker-compose down
+    docker compose down
     ```
 
 ## Docker Desktopの終了
