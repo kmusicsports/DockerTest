@@ -1,21 +1,25 @@
 # DockerTest
-非エンジニアの方にもDocker, Docker Composeを使ってもらうための資料およびコード(Webアプリ)です。
+Docker, Docker Composeを初めて使う人が、詳しい原理は理解せずに、Webアプリ(Flask)を起動するための資料およびコードです。
 
-※Docker ComposeでWebアプリを起動してもらうことのみを目的としているため、Docker, Docker Composeの説明・解説はしていません。しっかり学びたい方は、[公式のスタートガイド](https://docs.docker.com/get-started/)をご覧ください。
+※Docker, Docker Composeをしっかり学びたい方は、[公式のスタートガイド](https://docs.docker.com/get-started/)をご覧ください。
+
+## 前提条件
+1. CUIツール(ターミナル、コマンドプロンプトなど)でコマンドが打てる
+2. Git が使える(clone, pull ができれば大丈夫)
+
 
 ## Dockerのインストール
 基本的には、公式のインストールマニュアルに則って進めていけば問題ありません。
 
 [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
 
-インストールが完了したら、PCに備わっているCUIツール(ターミナル、コマンドプロンプトなど)を起動し、下記のコマンドを実行してください。
+インストールが完了したら、下記のコマンドを実行してください。
 ```
 docker -v
 ```
-下記のようにバージョン情報が表示され、エラーが出なければOKです。
+下記のようなバージョン情報が表示され、エラーが出なければOKです。
 エラーが出るようならPCを再起動してみると良いかもしれません。
 ```
-$ docker -v
 Docker version 20.10.17, build 100c701
 ```
 
@@ -29,35 +33,33 @@ gitが使える方は、リポジトリをcloneしてください。
 ```
 git clone https://github.com/kmusicsports/DockerTest.git
 ```
-そうでない方は、以下の手順でソースコードを準備してください。
-1. 下記のリンクへアクセス
-    [https://github.com/kmusicsports/DockerTest](https://github.com/kmusicsports/DockerTest)
-2. 画面右側にある緑色の「code」ボタンをクリックし、一番下にある「Download Zip」を選択
-3. ダウンロードしたzipファイルを解凍・展開
-4. 展開したDockerTest-mainフォルダを任意の場所に移動
+clone後のファイル構成はこのようになります。
+```
+DockerTest
+ ├ .gitignore
+ ├ docker-compose.yml
+ ├ Dockerfile
+ ├ README.md
+ └ flask
+     └ application.py
+```
 
 ## ビルド&起動
-1. CUIツールで、下記のようなコマンドを打ち、リポジトリをcloneした場所orDockerTest-mainフォルダを置いた場所に移動
+1. cdコマンドでリポジトリをcloneした場所に移動
     ```
-    cd 移動したい場所(例: C:\Users\username\Desktop\DockerTest-main)
+    cd リポジトリをcloneした場所(例: C:\Users\username\Desktop\DockerTest)
     ```
 2. 下記のコマンドを打ち、ビルド&起動
     ```
     docker compose up -d
     ```
-3. 「Creating dockertest_web_1 ... done」が表示されたら、下記のリンクにアクセス
-    [http://localhost:5000](http://localhost:5000/)
-    「Hello, World!」が表示されればOKです。
+3. 「Creating dockertest_web_1 ... done」が表示されたら、[http://localhost:5000](http://localhost:5000/)にアクセスし、「Hello, World!」が表示されればOKです。
 
-## 停止or破棄
-- 停止する場合(次回ビルドせずに起動可能)
-    ```
-    docker compose stop
-    ```
-- 破棄する場合
-    ```
-    docker compose down
-    ```
+## 破棄
+下記のコマンドを打ち、破棄します。
+```
+docker compose down
+```
 
 ## Docker Desktopの終了
 Docker Desktopのアプリは、ウィンドウを閉じるだけで終了できますが、Dockerは裏で動いたままです。
