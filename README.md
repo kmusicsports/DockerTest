@@ -56,7 +56,7 @@ DockerTest
 3. 「Creating dockertest_web_1 ... done」が表示されたら、[http://localhost:5000](http://localhost:5000/)にアクセスし、「Hello, World!」が表示されればOKです。
 
 ## 停止&破棄
-下記のコマンドを打ち、破棄します。
+下記のコマンドを打ち、停止&破棄します。
 ```
 docker compose down
 ```
